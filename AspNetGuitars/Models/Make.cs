@@ -7,7 +7,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AspNetGuitars.Models {
     public class Make {
-        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int ID { get; set; }
         public string Name { get; set; }
 
         public virtual ICollection<Model> Models { get; set; }
