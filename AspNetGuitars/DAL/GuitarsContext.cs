@@ -11,7 +11,9 @@ namespace AspNetGuitars.DAL {
 
         private static string connectionString = "Data Source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=aspnet-AspNetGuitars;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\\Guitars.mdf";
 
-        public GuitarsContext() : base(connectionString) { }
+        public GuitarsContext() : base(connectionString) {
+            Database.SetInitializer(new GuitarsInitializer());
+        }
 
         public DbSet<Guitar> Guitars { get; set; }
         public DbSet<Model> Models { get; set; }
